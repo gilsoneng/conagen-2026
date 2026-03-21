@@ -1,0 +1,6 @@
+ipykernel>=7
+openai>=1
+langchain>=1
+langchain-community>=0.4
+langchain-openai>=1
+faiss-cpu>=1.13
