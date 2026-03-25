@@ -1,29 +1,45 @@
 # Apresentação (slides)
 
-O arquivo **`presentation_slides.md`** é um deck em formato [Marp](https://marp.app/): Markdown com separadores `---` entre slides.
+Dois decks em formato [Marp](https://marp.app/): Markdown com separadores `---` entre slides.
 
-## Como gerar PDF ou HTML
+| Arquivo | Descrição |
+|---------|-----------|
+| `presentation_slides.md` | Versão enxuta, foco em código e hands-on |
+| **`presentation_conagen_completa.md`** | **Versão completa CONAGEN** — todos os slides com diagramas visuais |
 
-1. Instale a extensão **Marp for VS Code** (ou o CLI `@marp-team/marp-cli`).
-2. Abra `docs/presentation_slides.md`.
-3. Exporte para **PDF** ou **HTML** pelo comando da extensão / CLI.
+## PDF (formato recomendado para distribuição)
 
-### CLI (exemplo)
+O arquivo **`conagen_completa.pdf`** na pasta `docs/` é a apresentação pronta para abrir em qualquer leitor de PDF.
+
+Para **regenerar** o PDF a partir do Markdown (após editar o `.md` ou trocar imagens em `assets/`):
+
+```bash
+npx @marp-team/marp-cli docs/presentation_conagen_completa.md -o docs/conagen_completa.pdf
+```
+
+HTML (opcional):
+
+```bash
+npx @marp-team/marp-cli docs/presentation_conagen_completa.md -o docs/conagen_completa.html
+```
+
+Versão enxuta:
 
 ```bash
 npx @marp-team/marp-cli docs/presentation_slides.md -o docs/slides.pdf
-npx @marp-team/marp-cli docs/presentation_slides.md -o docs/slides.html
 ```
 
 ## Diagramas
 
-Os diagramas usam blocos **Mermaid** (` ```mermaid `). Se a exportação falhar, use a pré-visualização Marp ou copie o Mermaid para [mermaid.live](https://mermaid.live) e exporte como PNG para colar no PowerPoint/Google Slides.
+- **`presentation_conagen_completa.md`**: usa imagens PNG em `assets/` (diagramas pré-renderizados).
+- **`presentation_slides.md`**: usa blocos **Mermaid**. Se a exportação falhar, copie o Mermaid para [mermaid.live](https://mermaid.live) e exporte como PNG.
 
 ## Durante o Hands-on
 
-- Mostre o **README** (`README.md`) como índice do repositório.
-- Execute **`llm.ipynb`** por blocos, citando o **`examples/0X_*.py`** correspondente.
-- Variável de ambiente: `OPENAI_API_KEY` (ver `.env.example`).
+- Siga **`docs/HANDS_ON.md`** para setup e ordem dos exemplos.
+- O **README** na raiz resume comandos e conceitos.
+- **`llm.ipynb`**: execute por blocos, alinhado aos `examples/0X_*.py`.
+- Chave: `OPENAI_API_KEY` via `.env` (veja `.env.example`).
 
 ## Ordem sugerida na fala
 

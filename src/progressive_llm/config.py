@@ -1,5 +1,9 @@
 import os
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 
 def resolve_api_key(explicit_key: str | None = None) -> str:
     """Retorna a API key recebida ou lida de OPENAI_API_KEY."""

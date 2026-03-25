@@ -4,3 +4,9 @@ __pycache__/
 .env
 train.jsonl
 
+# Artefatos locais / builds opcionais
+node_modules/
+pptx_extracted/
+temp_slides.zip
+~$*.pptx
+docs/*.pptx

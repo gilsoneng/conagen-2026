@@ -2,7 +2,9 @@
 
 Projeto demonstrando a evolucao de um sistema LLM em quatro estagios e uma arquitetura final combinada.
 
-**Apresentação (slides):** veja `docs/presentation_slides.md` (Marp) e `docs/PRESENTATION_README.md` para exportar PDF/HTML.
+**Hands-on passo a passo:** [`docs/HANDS_ON.md`](docs/HANDS_ON.md)
+
+**Apresentação:** PDF em [`docs/conagen_completa.pdf`](docs/conagen_completa.pdf) — fonte Marp em `docs/presentation_conagen_completa.md` (detalhes em `docs/PRESENTATION_README.md`).
 
 ## Contexto
 
@@ -40,21 +42,21 @@ Arquitetura final:
 
 ```text
 .
+├── docs/
+│   ├── HANDS_ON.md              # guia prático (comece aqui)
+│   ├── conagen_completa.pdf     # apresentação (PDF)
+│   ├── presentation_conagen_completa.md
+│   └── PRESENTATION_README.md
+├── assets/                      # diagramas da apresentação
 ├── examples/
-│   ├── 01_base.py
-│   ├── 02_rag.py
-│   ├── 03_prompt_control.py
-│   ├── 04_fine_tuning.py
-│   └── 05_hybrid.py
-├── src/
-│   └── progressive_llm/
-│       ├── __init__.py
-│       ├── config.py
-│       ├── domain_data.py
-│       └── pipeline.py
+│   ├── 01_base.py … 05_hybrid.py
+├── src/progressive_llm/
+├── llm.ipynb
+├── activate.ps1                 # Windows: ativa venv + PYTHONPATH
+├── run_example.ps1
 ├── .env.example
-├── .gitignore
-└── requirements.txt
+├── requirements.txt
+└── README.md
 ```
 
 ---
@@ -78,6 +80,21 @@ Configure a chave:
 ```bash
 cp .env.example .env
 export OPENAI_API_KEY="sua-chave-aqui"
+```
+
+**Windows (PowerShell):** Se `python` nao for encontrado, use o venv:
+
+```powershell
+# Opcao 1: Ativar ambiente e usar python normalmente
+. .\activate.ps1
+python examples/01_base.py
+
+# Opcao 2: Script auxiliar (configura tudo)
+.\run_example.ps1
+
+# Opcao 3: Caminho direto do venv
+$env:PYTHONPATH = "src"
+.\.venv\Scripts\python.exe examples/01_base.py
 ```
 
 > Dica: para execucao local, tambem vale usar `direnv`, `dotenv` ou variavel no shell.
